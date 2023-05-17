@@ -15,14 +15,23 @@ const createStore = redux.createStore; // to create the store through the method
 //action: an object with a type property
 //action creator: a function that returns an object
 const PRODUCT_ORDERED = "PRODUCT_ORDERED";
+const PRODUCT_RESTOCKED = "PRODUCT RESTOCKED";
 
 //action creator wich is going to give the action itself
 function orderProduct(){
     return {
         type: PRODUCT_ORDERED,
-        quantity: 1,
+        payload: 1,
     }
     
+}
+
+//action to restockProduct
+function restockProduct (qty=1){
+    return {
+        type: PRODUCT_RESTOCKED,
+        payload: qty,
+    }
 }
 
 //state
@@ -39,6 +48,12 @@ const reducer = (state = initialState, action ) => {
             return  {
                 ...state,
                 numOfProducts: state.numOfProducts -1
+            }
+        case PRODUCT_RESTOCKED:
+            return {
+                ...state,
+                numOfProducts: state.numOfProducts + action.payload
+                
             }
     }
     
@@ -61,6 +76,7 @@ const unsubscribe = store.subscribe(() => console.log("Updated state:" , store.g
 store.dispatch(orderProduct())
 store.dispatch(orderProduct())
 store.dispatch(orderProduct())
+store.dispatch(restockProduct(5))
 
 //Unregister of listeners via the functin returned by subscribe() (4)
 unsubscribe()
