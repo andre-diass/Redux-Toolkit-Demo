@@ -21,7 +21,7 @@ const logger = reduxLogger.createLogger(); // to log the actions;
 const PRODUCT_ORDERED = "PRODUCT_ORDERED";
 const PRODUCT_RESTOCKED = "PRODUCT RESTOCKED";
 
-const MATERIAL_ORDERED = "MATERIA_ORDERED";
+const MATERIAL_ORDERED = "MATERIAL_ORDERED";
 const MATERIAL_RESTOCKED = "MATERIAL_RESTOCKED";
 
 //action creator: a function that returns an object
@@ -130,6 +130,7 @@ store.dispatch(orderProduct());
 store.dispatch(orderProduct());
 store.dispatch(orderMaterial(2));
 store.dispatch(restockProduct(5));
+store.dispatch(restockMaterial());
 
 //Unregister of listeners via the functin returned by subscribe() (4)
 unsubscribe();
