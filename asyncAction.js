@@ -1,4 +1,4 @@
-//code for async action
+//code for async
 
 const redux = require("redux");
 const createStore = redux.createStore;
