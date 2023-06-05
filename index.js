@@ -57,7 +57,7 @@ function restockMaterial(qty = 1) {
 
 ////////////////////////////////////////////////////////////////////////
 
-//state
+//state interface
 const ProductInitialState = {
   numOfProducts: 10,
 };
